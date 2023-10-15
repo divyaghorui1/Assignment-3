@@ -2,6 +2,7 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -11,4 +12,10 @@ body {
 #vis {
     width: 80%;
     max-width: 800px;
+    margin-top: 5%;  /* Adjust this to control the distance from the top */
+}
+
+/* Center the title of the visualization */
+.vega-embed {
+    text-align: center;
 }
