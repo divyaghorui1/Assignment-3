@@ -1,7 +1,16 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "data": { "url": "path/to/building_inventory_data.csv" },
+  "data": { "url": "building_inventory_data.csv" },
   "transform": [
+    {
+      "aggregate": [
+        {
+          "op": "count",
+          "as": "count"
+        }
+      ],
+      "groupby": ["Agency Name"]
+    },
     {
       "window": [
         {
@@ -14,14 +23,13 @@
           "field": "count",
           "order": "descending"
         }
-      ],
-      "groupby": ["Agency Name"]
+      ]
     },
     {
       "filter": "datum.rank <= 5"
     },
     {
-      "aggregate": [
+      "joinaggregate": [
         {
           "op": "sum",
           "field": "Square Footage",
