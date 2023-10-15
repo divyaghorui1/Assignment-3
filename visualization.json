@@ -7,7 +7,7 @@
   },
   "transform": [
     {
-      "filter": "datum['Year Acquired'] !== 0 && datum['Year Constructed'] !== 0 && datum['Year Acquired'] !== '0' && datum['Year Constructed'] !== '0'"
+      "filter": "(datum['Year Acquired'] !== 0 && datum['Year Acquired'] !== '0') && (datum['Year Constructed'] !== 0 && datum['Year Constructed'] !== '0')"
     }
   ],
   "mark": "circle",
