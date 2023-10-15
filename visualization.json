@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "data": {"url": "building_inventory.json"},
+  "data": {"url": "building_inventory.csv"},
   "transform": [{
     "window": [{"op": "rank", "as": "rank"}],
     "sort": [{"field": "SquareFootage", "order": "descending"}],
