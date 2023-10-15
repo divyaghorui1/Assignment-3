@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "data": { "url": "building_inventory_data.csv" },
+  "data": { "url": "https://github.com/divyaghorui1/Assignment-3/blob/main/building_inventory.csv" },
   "transform": [
     {
       "aggregate": [
