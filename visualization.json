@@ -1,59 +1,17 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "data": { "url": "https://github.com/divyaghorui1/Assignment-3/blob/main/building_inventory.csv" },
-  "transform": [
-    {
-      "aggregate": [
-        {
-          "op": "count",
-          "as": "count"
-        }
-      ],
-      "groupby": ["Agency Name"]
-    },
-    {
-      "window": [
-        {
-          "op": "rank",
-          "as": "rank"
-        }
-      ],
-      "sort": [
-        {
-          "field": "count",
-          "order": "descending"
-        }
-      ]
-    },
-    {
-      "filter": "datum.rank <= 5"
-    },
-    {
-      "joinaggregate": [
-        {
-          "op": "sum",
-          "field": "Square Footage",
-          "as": "totalSquareFootage"
-        }
-      ],
-      "groupby": ["Agency Name", "Year Acquired"]
-    }
-  ],
-  "mark": "line",
+  "data": {"url": "building_inventory.csv"},
+  "transform": [{
+    "window": [{"op": "rank", "as": "rank"}],
+    "sort": [{"field": "SquareFootage", "order": "descending"}],
+    "groupby": ["Year"]
+  }, {
+    "filter": "datum.rank <= 5"
+  }],
+  "mark": "bar",
   "encoding": {
-    "x": {
-      "field": "Year Acquired",
-      "type": "temporal",
-      "title": "Year Acquired"
-    },
-    "y": {
-      "field": "totalSquareFootage",
-      "type": "quantitative",
-      "title": "Square Footage"
-    },
-    "color": {
-      "field": "Agency Name",
-      "type": "nominal"
-    }
+    "x": {"field": "Year", "type": "ordinal", "axis": {"labelAngle": 0}},
+    "y": {"field": "SquareFootage", "type": "quantitative"},
+    "color": {"field": "Department", "type": "nominal"}
   }
 }
